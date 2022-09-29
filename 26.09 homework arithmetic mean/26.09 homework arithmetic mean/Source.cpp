@@ -7,18 +7,21 @@ int main()
 	int b;
 	float am; //arithmetic mean
 	float gm; //geometric mean
+
 	cout << "Enter the first number(a positive integer):";
 	cin >> a;
-	cout << "Enter the second number(a positive integer):"<<endl;
-	cout << "Enter the third number(a positive integer):";
+	cout << "Enter the second number(a positive integer):";
 	cin >> b;
+
 	/* solution ¹1:
 	am = (static_cast<float>(a) + static_cast<float>(b)) / 2;
 	cout << "Arithmetic mean=" << am<<endl;*/
 	cout << "Arithmetic mean="<< (static_cast<float>(a) + static_cast<float>(b)) / 2<<endl;
+
 	gm = sqrt(static_cast<float>(a) * static_cast<float>(b));
 	cout << "Geometric mean=" << gm;
+	
 	return 0;
 }
-//  cin? endl
-//static_cast<float>
+
+

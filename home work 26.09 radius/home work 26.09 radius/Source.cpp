@@ -22,7 +22,7 @@ int main()
 	//printing it
 	cout << "Area of a circle=" << S << endl;
 	//calculating a volume of a sphere   is V = 4/3 πr³.
-	V= 4/3* M_PI * pow(radius, 3);
+	V= 4.0/3* M_PI * pow(radius, 3);
 	//printing it
 	cout << "Volume of a sphere=" << V << endl;
 
