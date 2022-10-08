@@ -10,5 +10,5 @@ int main()
     hours = minutes / 60;
     cout << "A number of minutes:" << minutes << endl;
     cout << "A number of hours:" << hours << endl;
-
+    return 0;
 }
