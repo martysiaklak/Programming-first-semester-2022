@@ -4,7 +4,7 @@ int n, m;
 int sum = 0;
 int main()
 {    //asking for input
-	cout << "Enter a three-digit number:";
+	cout << "Enter a number:";
 		cin >> n;
 	while(n>0)
 		{
@@ -13,5 +13,5 @@ int main()
 		n = n / 10;        //remove last digit from number
 		}
 	cout << "Sum=" << sum; //printing the result
-
+	return 0;
 }
