@@ -83,5 +83,7 @@ int main()
 		cout<<array[i]<<endl;
 		
 	}
+	delete[]array;
+	delete[]new_array;
 	return 0;
 }
