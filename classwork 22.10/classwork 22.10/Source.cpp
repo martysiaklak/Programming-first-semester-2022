@@ -30,6 +30,40 @@ int main()
 		cout << endl;
 	}
 
+	//outputting numbers of raws, which elements aren't repeating
+	cout << endl;
+	cout << "Numbers of raws, which elements aren't repeating:" << endl;
+	int sum1 = 0;
+	for (int i = 0; i < m; i++)
+	{
+		int j = 0;
+		bool rightness = true;
+		while (j + 1 < n)
+		{
+			for (int k = j + 1; k < n; k++)
+			{
+				if (array[i][j] == array[i][k]) //if repeating get out of loop
+				{
+					rightness = false;
+					sum1++; //to make sure that output will be correct
+					break;
+				}
+			}
+			if (rightness == false) //not to repeat checking when it's already obvious
+			{
+				break;
+			}
+			j++;
+		}
+		if (rightness == true) //printing those numbers
+		{
+			cout << i << " ";
+		}
+	}
+	if (sum1 == m)
+	{
+		cout << "There are no raws like that" << endl;
+	}
 	cout << endl;
 
 //odd number columns
@@ -110,6 +144,8 @@ int main()
 	}
 	cout << endl;
 
+	
+
 	//swapping two rows
 	int k, l;
 	cout << "Enter k:" << endl;
@@ -153,10 +189,8 @@ int main()
 				descendingColumns++;
 			}
 		}
-		
 		cout << "Number of columns where elements are descending: " << descendingColumns << endl;
-
-
+		cout << endl;
 
 	return 0;
 }
