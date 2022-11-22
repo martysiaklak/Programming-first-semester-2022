@@ -12,6 +12,12 @@ enum days
 	SUNDAY,
 	NOTHING
 };
+struct Date
+{
+	int day;
+	days day_of_the_week;
+	int mounth;
+};
 days from_string(string input);
 int quantity(days* array, int size, days MONDAY);
 string from_days(days MONDAY);
@@ -24,23 +30,36 @@ int main()
 	days* day_of_week = new days[size];
 	days already_printed[7];
 	int already_printed_index = 0;
-	for (int i = 0; i < size; i++)
-	{
-		cout << "Enter " << i + 1 << ": " << endl;
-		cin >> array_days[i];
-		day_of_week[i] = from_string(array_days[i]);
-
-	}
+		for (int i = 0; i < size; i++)
+		{
+			cout << "Enter " << i + 1 << " day of week: " << endl;
+			cin >> array_days[i];
+			day_of_week[i] = from_string(array_days[i]);  //from string to days
+			if (day_of_week[i] == NOTHING) //in case it's a wrong input
+			{
+				i--;
+			}
+			/*while (day_of_week[i] == NOTHING)    //also a soution, but longer one
+			{
+				cout << "Enter " << i + 1 << " day of week: " << endl;
+				cin >> array_days[i];
+				day_of_week[i] = from_string(array_days[i]);
+			}*/
+		}
+	
+	
 	sort(day_of_week, day_of_week + size); //sorting
+	cout << endl;
 	cout << "Sorted list:" << endl;
 	for (int i = 0; i < size; i++)
 	{
 		cout<<from_days(day_of_week[i])<<endl;
 	}
+	cout << endl;
 	for (int i = 0; i < size; i++)
 	{
-		int sum=quantity(day_of_week, size, day_of_week[i]);
-		string output = from_days(day_of_week[i]);  
+		int sum=quantity(day_of_week, size, day_of_week[i]);  //counting how many times a day repeats
+		string output = from_days(day_of_week[i]);  //from days to string
 		bool is_in_array = false;
 		for (int k = 0; k < already_printed_index; k++) //missing printing those times, when a day repeats
 		{
@@ -55,6 +74,42 @@ int main()
 			cout << output << "-->" << sum << "times" << endl;
 			already_printed[already_printed_index] = day_of_week[i];
 			already_printed_index++;
+		}
+	}
+	cout << endl;
+	Date array_date[5];   //array that holds our dates            
+	for (int h = 0; h < 5; h++) //filling up that array
+	{
+		cout << "Enter day " << h + 1 << ":" << endl;
+		cin >> array_date[h].day;
+		while (array_date[h].day < 1 || array_date[h].day>31)
+		{
+			cout << "Error" << endl;
+			cout << "Enter day " << h + 1 << ":" << endl;
+			cin >> array_date[h].day;
+		}
+		cout << "Enter day of week " << h + 1 << ":" << endl;
+		string almost_day_of_the_week;
+		cin >> almost_day_of_the_week;
+		array_date[h].day_of_the_week = from_string(almost_day_of_the_week);
+		cout << "Enter mouth " << h + 1 << ":" << endl;
+		cin >> array_date[h].mounth;
+		while (array_date[h].mounth < 1 || array_date[h].mounth>12)
+		{
+			cout << "Error" << endl;
+			cout << "Enter mouth " << h + 1 << ":" << endl;
+			cin >> array_date[h].mounth;
+		}
+	}
+	cout << "Dates that include monday:" << endl;
+	for (int h = 0; h < 5; h++) //printing those dates, which include monday
+	{
+		if (array_date[h].day_of_the_week == MONDAY)
+		{
+			cout << array_date[h].day << "/";
+			cout << from_days(array_date[h].day_of_the_week) << "/";
+			cout << array_date[h].mounth;
+			cout << endl;
 		}
 	}
 	return 0;
