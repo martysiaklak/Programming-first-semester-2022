@@ -11,9 +11,6 @@ struct Point
 
 
 			//якщо коеф від'ємний, то не + а -. через if
-		/*os << "a= " << line_.a << endl;
-		os << "b= " << line_.b << endl;
-		os << "c= " << line_.c << endl;*/
 		return os;
 	}
 };
@@ -23,6 +20,14 @@ private:
 public:
 	line() : a(), b(), c() {}
 	line(const line& line) : a(line.a), b(line.b), c(line.c) {}
+	float get_a()
+	{
+		return a;
+	}
+	float get_b()
+	{
+		return b;
+	}
 	friend istream& operator>>(istream& is, line& line_)
 	{
 		cout << "Enter a" << endl;
@@ -31,15 +36,13 @@ public:
 		is >> line_.b;
 		cout << "Enter c" << endl;
 		is >> line_.c;
+		cout << "------------------" << endl;
 		return is;
 	}
 	friend ostream& operator<<(ostream& os, line line_)
 	{
-		os << line_.a << 'x' << '+' << line_.b << 'y' << '+' << line_.c << "=0";
+		os << line_.a << 'x' << '+' << line_.b << 'y' << '+' << line_.c << "=0"<<endl;
 		//якщо коеф від'ємний, то не + а -. через if
-		/*os << "a= " << line_.a << endl;
-		os << "b= " << line_.b << endl;
-		os << "c= " << line_.c << endl;*/
 		return os;
 	}
 	Point getInterception(line &line_)
@@ -68,7 +71,7 @@ public:
 	}
 	float getAngle(line & line2) 
 	{
-		double angle = (line2.a * a + line2.b * b) / (sqrt(line2.a * line2.a + line2.b * line2.b) * sqrt(a * a + b * b);
+		double angle = (line2.a * a + line2.b * b) / (sqrt(line2.a * line2.a + line2.b * line2.b) * sqrt(a * a + b * b));
 		return angle;
 	}
 	bool isonline(Point& line3)
@@ -88,6 +91,7 @@ public:
 		line line[10];
 		for (int i = 0; i < 10; i++)
 		{
+			cout << "Line " << i + 1 << endl;
 			cin >> line[i];
 		}
 		for (int i = 0; i < 10; i++)
@@ -101,6 +105,24 @@ public:
 				}
 			}
 		}
+		int sum_prln = 0;
+		for (int i = 0; i < 10; i++)
+		{
+			if (line[i].get_a() == 0)
+			{
+				sum_prln++;
+			}
+		}
+		cout << "How many lines are paralelni to OX: " << sum_prln << endl;
+		int sum_90 = 0;
+		for (int i = 0; i < 10; i++)
+		{
+			if (line[i].get_b() == 0)
+			{
+				sum_90++;
+			}
+		}
+		cout << "How many lines are perpendykylarni to OX: " << sum_90 << endl;
 
 		/*line line, line;
 		cout << "Data about line" << endl;
