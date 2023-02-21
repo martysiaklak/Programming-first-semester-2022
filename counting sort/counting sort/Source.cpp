@@ -57,13 +57,13 @@ void Sort(int* array, int* repeated_times, int* result, int size, int number_of_
 
 TEST_CASE("Sorting an array of wrong elements (negative integers)")
 {
-	int arrayToSort[] = { -4, 9, -9, 3, 6, 5 , 8 , 8 };
-	int number_of_elements = sizeof(arrayToSort) / sizeof(arrayToSort[0]);
-	const int size = FindMax(arrayToSort, number_of_elements) + 1;
+	int array_to_sort[] = { -4, 9, -9, 3, 6, 5 , 8 , 8 };
+	int number_of_elements = sizeof(array_to_sort) / sizeof(array_to_sort[0]);
+	const int size = FindMax(array_to_sort, number_of_elements) + 1;
 	int* repeated_times = new int[size];
 	int* result = new int[size];
 
-	REQUIRE_THROWS(Sort(arrayToSort, repeated_times, result, size, number_of_elements));
+	REQUIRE_THROWS(Sort(array_to_sort, repeated_times, result, size, number_of_elements));
 
 	delete[] repeated_times;
 	delete[] result;
@@ -71,12 +71,12 @@ TEST_CASE("Sorting an array of wrong elements (negative integers)")
 
 TEST_CASE("Sorting an array of one element")
 {
-	int arrayToSort[] = { 6 };
-	int number_of_elements = sizeof(arrayToSort) / sizeof(arrayToSort[0]);
-	const int size = FindMax(arrayToSort, number_of_elements) + 1;
+	int array_to_sort[] = { 6 };
+	int number_of_elements = sizeof(array_to_sort) / sizeof(array_to_sort[0]);
+	const int size = FindMax(array_to_sort, number_of_elements) + 1;
 	int* repeated_times = new int[size];
 	int* result = new int[size];
-	Sort(arrayToSort, repeated_times, result, size, number_of_elements);
+	Sort(array_to_sort, repeated_times, result, size, number_of_elements);
 
 	CHECK(result[0] == 6);
 
@@ -86,12 +86,12 @@ TEST_CASE("Sorting an array of one element")
 
 TEST_CASE("Sorting an array of integers")
 {
-	int arrayToSort[] = { 6, 3, 4, 5, 1, 2, 7, 9, 8, 0 };
-	int number_of_elements = sizeof(arrayToSort) / sizeof(arrayToSort[0]);
-	const int size = FindMax(arrayToSort, number_of_elements) + 1;
+	int array_to_sort[] = { 6, 3, 4, 5, 1, 2, 7, 9, 8, 0 };
+	int number_of_elements = sizeof(array_to_sort) / sizeof(array_to_sort[0]);
+	const int size = FindMax(array_to_sort, number_of_elements) + 1;
 	int* repeated_times = new int[size];
 	int* result = new int[size];
-	Sort(arrayToSort, repeated_times, result, size, number_of_elements);
+	Sort(array_to_sort, repeated_times, result, size, number_of_elements);
 
 	CHECK(result[0] == 0);
 	CHECK(result[1] == 1);
