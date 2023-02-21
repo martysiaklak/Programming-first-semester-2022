@@ -55,15 +55,25 @@ void Sort(int* array, int* repeated_times, int* result, int size, int number_of_
 	}
 }
 
-TEST_CASE("Sorting an array of wrong elements (negative integers)")
+TEST_CASE("Sorting an array of integers")
 {
-	int array_to_sort[] = { -4, 9, -9, 3, 6, 5 , 8 , 8 };
+	int array_to_sort[] = { 6, 3, 4, 5, 1, 2, 7, 9, 8, 0 };
 	int number_of_elements = sizeof(array_to_sort) / sizeof(array_to_sort[0]);
 	const int size = FindMax(array_to_sort, number_of_elements) + 1;
 	int* repeated_times = new int[size];
 	int* result = new int[size];
+	Sort(array_to_sort, repeated_times, result, size, number_of_elements);
 
-	REQUIRE_THROWS(Sort(array_to_sort, repeated_times, result, size, number_of_elements));
+	CHECK(result[0] == 0);
+	CHECK(result[1] == 1);
+	CHECK(result[2] == 2);
+	CHECK(result[3] == 3);
+	CHECK(result[4] == 4);
+	CHECK(result[5] == 5);
+	CHECK(result[6] == 6);
+	CHECK(result[7] == 7);
+	CHECK(result[8] == 8);
+	CHECK(result[9] == 9);
 
 	delete[] repeated_times;
 	delete[] result;
@@ -84,25 +94,15 @@ TEST_CASE("Sorting an array of one element")
 	delete[] result;
 }
 
-TEST_CASE("Sorting an array of integers")
+TEST_CASE("Sorting an array of wrong elements (negative integers)")
 {
-	int array_to_sort[] = { 6, 3, 4, 5, 1, 2, 7, 9, 8, 0 };
+	int array_to_sort[] = { -4, 9, -9, 3, 6, 5 , 8 , 8 };
 	int number_of_elements = sizeof(array_to_sort) / sizeof(array_to_sort[0]);
 	const int size = FindMax(array_to_sort, number_of_elements) + 1;
 	int* repeated_times = new int[size];
 	int* result = new int[size];
-	Sort(array_to_sort, repeated_times, result, size, number_of_elements);
 
-	CHECK(result[0] == 0);
-	CHECK(result[1] == 1);
-	CHECK(result[2] == 2);
-	CHECK(result[3] == 3);
-	CHECK(result[4] == 4);
-	CHECK(result[5] == 5);
-	CHECK(result[6] == 6);
-	CHECK(result[7] == 7);
-	CHECK(result[8] == 8);
-	CHECK(result[9] == 9);
+	REQUIRE_THROWS(Sort(array_to_sort, repeated_times, result, size, number_of_elements));
 
 	delete[] repeated_times;
 	delete[] result;
