@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include "doctest.h"
 using namespace std;
+//Selection sort is typically used for sorting small arrays
 
 void Sort(int* array, int size)
 {
@@ -47,6 +48,7 @@ TEST_CASE("Sorting already sorted array")
 	CHECK(sorted_array[1] == 0);
 	CHECK(sorted_array[2] == 1);
 }
+
 TEST_CASE("Sorting only 1 number")
 {
 	int unsorted_array[] = { 1 };
