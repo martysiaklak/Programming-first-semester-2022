@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "doctest.h"
 using namespace std;
-//Selection sort is typically used for sorting small arrays
+//Selection sort is typically used for sorting small arrays. When memory space is limited
 
 void Sort(int* array, int size)
 {
