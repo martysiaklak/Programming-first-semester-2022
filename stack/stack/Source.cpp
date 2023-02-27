@@ -2,17 +2,17 @@
 #include "doctest.h"
 using namespace std;
 
-const int MAX_SIZE = 1000;
 class Stack 
 {
 private:
-	int stack[MAX_SIZE];
+	int* stack;
+	int capacity;
 	int top;
-
 public:
-	Stack() 
+	Stack(int initialCapacity = 10) : capacity(initialCapacity), top(-1) {stack = new int[capacity];}
+	~Stack()
 	{
-		top = -1; //means it's empty
+		delete[] stack;
 	}
 
 	bool IsEmpty()
@@ -20,16 +20,23 @@ public:
 		return top == -1;
 	}
 
-	bool IsFull()
+	int Size() 
 	{
-		return top == MAX_SIZE - 1;
+		return top + 1;
 	}
 
 	void Push(int element) 
 	{
-		if (IsFull()) 
+		if (Size() == capacity) 
 		{
-			return;  
+			// double the capacity if the array is full
+			int* new_stack = new int[capacity * 2];
+			for (int i = 0; i <= top; i++) {
+				new_stack[i] = stack[i];
+			}
+			delete[] stack;
+			stack = new_stack;
+			capacity *= 2;
 		}
 		top++;
 		stack[top] = element;
@@ -39,7 +46,7 @@ public:
 	{
 		if (IsEmpty())
 		{
-			return -1;
+			return -1;        
 		}
 		return stack[top];
 	}
@@ -52,17 +59,6 @@ public:
 		}
 		top--;
 	}
-
-	/*int Pop() 
-	{
-		if (IsEmpty())
-		{
-			return -1; 
-		}
-		int n = stack[top];  
-		top--;
-		return n;
-	}*/
 };
 
 TEST_CASE("Pushing and popping 3 numbers")
@@ -79,19 +75,30 @@ TEST_CASE("Pushing and popping 3 numbers")
 	CHECK(stack.Top() == 7);
 }
 
-TEST_CASE("When stack is empty at first and then becomes full")
+TEST_CASE("When stack is empty at first and then we add elements")
 {
 	Stack stack;
 	CHECK(stack.IsEmpty() == true);
-	CHECK(stack.IsFull() == false);
 
-	for (int i = 0; i < MAX_SIZE; i++)
-	{
-		stack.Push(i);
-	}
+	stack.Push(17);
 
 	CHECK(stack.IsEmpty() == false);
-	CHECK(stack.IsFull() == true);
+}
+
+TEST_CASE("Checking size")
+{
+	Stack stack;
+
+	CHECK(stack.Size() == 0);
+
+	stack.Push(7);
+	stack.Push(2);
+	
+	CHECK(stack.Size() == 2);
+
+	stack.Pop();
+
+	CHECK(stack.Size() == 1);
 }
 
 TEST_CASE("Push and pop mixed")
@@ -120,75 +127,21 @@ TEST_CASE("Push and pop mixed")
 	CHECK(stack.IsEmpty() == true); //check if it's empty
 }
 
-TEST_CASE("Push element to full stack")   //when the stack is full it isn't pushing any more elements
+TEST_CASE("Pushing 12 elements")
 {
 	Stack stack;
-	for (int i = 0; i < MAX_SIZE; i++)
-	{
-		stack.Push(i);
-	}
 	stack.Push(7);
-	CHECK(stack.Top() == 999);
-}
+	stack.Push(-9);
+	stack.Push(3);
+	stack.Push(7);
+	stack.Push(-9);
+	stack.Push(3);
+	stack.Push(7);
+	stack.Push(-9);
+	stack.Push(3);
+	stack.Push(7);
+	stack.Push(-9);
+	stack.Push(3);
 
-//TEST_CASE("Pushing and popping 3 numbers")
-//{
-//	Stack stack;
-//	stack.Push(7);
-//	stack.Push(-9);
-//	stack.Push(3);
-//
-//	CHECK(stack.Pop() == 3);
-//	CHECK(stack.Pop() == -9);
-//	CHECK(stack.Pop() == 7);
-//}
-//
-//TEST_CASE("When stack is empty at first and then becomes full")
-//{
-//	Stack stack;
-//	CHECK(stack.IsEmpty() == true);
-//	CHECK(stack.IsFull() == false);
-//
-//	for (int i = 0; i < MAX_SIZE; i++) 
-//	{
-//		stack.Push(i);
-//	}
-//
-//	CHECK(stack.IsEmpty() == false);       
-//	CHECK(stack.IsFull() == true);
-//}
-//
-//TEST_CASE("Push and pop mixed")
-//{
-//	Stack stack;
-//	stack.Push(5);  // push 5 elements
-//	stack.Push(8);
-//	stack.Push(-2);
-//	stack.Push(0);
-//	stack.Push(1);
-//
-//	CHECK(stack.Pop() == 1); // pop 3 elements
-//	CHECK(stack.Pop() == 0);
-//	CHECK(stack.Pop() == -2);
-//
-//	stack.Push(4);   // push 2 more elements
-//	stack.Push(-6);
-//
-//	CHECK(stack.Pop() == -6); // pop all of them
-//	CHECK(stack.Pop() == 4);
-//	CHECK(stack.Pop() == 8);
-//	CHECK(stack.Pop() == 5);
-//
-//	CHECK(stack.IsEmpty() == true); //check if it's empty
-//}
-//
-//TEST_CASE("Push element to full stack")   //when the stack is full it isn't pushing any more elements
-//{
-//	Stack stack;
-//	for (int i = 0; i < MAX_SIZE; i++) 
-//	{
-//		stack.Push(i);
-//	}
-//	stack.Push(7);
-//	CHECK(stack.Pop() == 999);
-//}
+	CHECK(stack.Top() == 3);
+}
