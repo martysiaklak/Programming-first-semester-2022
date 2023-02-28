@@ -31,7 +31,8 @@ public:
 		{
 			// double the capacity if the array is full
 			int* new_stack = new int[capacity * 2];
-			for (int i = 0; i <= top; i++) {
+			for (int i = 0; i <= top; i++) 
+			{
 				new_stack[i] = stack[i];
 			}
 			delete[] stack;
