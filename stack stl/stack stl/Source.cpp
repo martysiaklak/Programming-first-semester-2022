@@ -2,6 +2,7 @@
 #include "doctest.h"
 #include <stack>
 using namespace std; 
+
 TEST_CASE("pushing elements and checking the top's value")
 {
 	stack<int> stack;

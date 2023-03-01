@@ -8,6 +8,13 @@ private:
 	int Id;
 	int Specialization;
 public:
+	//Student() : StudentName(""), Id(0), Specialization(0) {}
+	//Student(int id=12) : StudentName(""), Id(id), Specialization(0) {}
+	/*Student(int id) :StudentName("lolita"), Id(id), Specialization(2) {}*/
+	void SetId(int new_id)
+	{
+		Id = new_id;
+	}
 	bool operator==(const Student& student2)
 	{
 		return Id == student2.Id;
@@ -39,9 +46,13 @@ private:
 	int Number;
 	int CourseSpecialization;
 public:
+	void SetNumber(int new_number)
+	{
+		Number = new_number;
+	}
 	bool operator==(const Course& course2)
 	{
-		return CourseName == course2.CourseName;
+		return Number == course2.Number;
 	}
 	int GetCourseSpecialization()
 	{
@@ -75,6 +86,14 @@ private:
 public:
 	Uni() {
 		courses = new Course[100]; students = new Student[100];
+	}
+	int StudentsQuantity()
+	{
+			return cur;
+	}
+	int CoursesQuantity()
+	{
+		return index;
 	}
 	void AddStudent(Student& student)
 	{
@@ -119,6 +138,7 @@ public:
 		}
 	}
 
+
 	//void RemoveStudent(Student& student)
 	//{
 	//	int i = 0;
@@ -135,24 +155,36 @@ public:
 	//}
 	void StudentsForCourse(Course& course)
 	{
+		int students_quantity = 0;
 		cout << "Students that have to attend this course:";
 		for (int i = 0; i < cur; i++)
 		{
 			if (course.GetCourseSpecialization() == students[i].GetSpecialization())
 			{
 				cout << students[i] << endl;
+				students_quantity++;
 			}
+		}
+		if (students_quantity == 0)
+		{
+			cout << "There are no students that have to attend this course" << endl;
 		}
 	}
 	void CoursesForStudent(Student& student)
 	{
+		int courses_quantity=0;
 		cout << "Courses avalible for this student:";
 		for (int i = 0; i < index; i++)
 		{
 			if (student.GetSpecialization() == courses[i].GetCourseSpecialization())
 			{
 				cout << courses[i] << endl;
+				courses_quantity++;
 			}
+		}
+		if (courses_quantity == 0)
+		{
+			cout << "There are no courses available." << endl;
 		}
 	}
 	void PrintStudents()
@@ -196,7 +228,7 @@ int main()
 		cout << "5. Courses avalible for a particular student" << endl;
 		cout << "6. Students that have to attend a particular course" << endl;
 		cout << "7. Exit" << endl;
-		cout << "8. All of the students:" << endl;
+		cout << "-------------------------------------------------------" << endl;
 		cin >> answer;
 	Student student;
 	Course course;
@@ -204,29 +236,58 @@ int main()
 	case 1:
 		cin >> student;
 		university.AddStudent(student);
+		university.PrintStudents();
 		break;
 	case 2:
-		cin >> student;
-		university.RemoveStudent(student);
+		if (university.StudentsQuantity() == 0)
+		{
+			cout << "There are 0 students" << endl;
+			break;
+		}
+		else
+		{
+			cout << "Enter student's id:" << endl;
+			int id;
+			cin >> id;
+			student.SetId(id);
+			university.RemoveStudent(student);
+			university.PrintStudents();
+		}
 		break;
 	case 3:
 		cin >> course;
 		university.AddCourse(course);
+		university.PrintCourses();
 		break;
 	case 4:
-		cin >> course;
-		university.RemoveCourse(course);
+		if (university.CoursesQuantity() == 0)
+		{
+			cout << "There are 0 courses" << endl;
+			break;
+		}
+		else
+		{
+			cout << "Enter the number of the course:" << endl;
+			int n;
+			cin >> n;
+			course.SetNumber(n);
+			university.RemoveCourse(course);
+			university.PrintCourses();
+		}
 		break;
 	case 5:
-		cin >> student;
+		cout << "Enter student's id:" << endl;
+		int id;
+		cin >> id;
+		student.SetId(id);
 		university.CoursesForStudent(student);
 		break;
 	case 6:
-		cin >> course;
+		cout << "Enter the number of the course:" << endl;
+		int n;
+		cin >> n;
+		course.SetNumber(n);
 		university.StudentsForCourse(course);
-		break;
-	case 8:
-		university.PrintStudents();
 		break;
 	default:
 		break;
