@@ -1,0 +1,2 @@
+1 name1 18 pmi 2000
+2 name2 35 lecturer 15000
