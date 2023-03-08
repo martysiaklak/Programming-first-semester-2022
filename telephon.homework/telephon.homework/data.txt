@@ -1,2 +1,4 @@
-1 pro apple 123 red 234
-2 nin nokia 12 1
+1 pro apple 123 red 1080
+2 nin nokia 12 1 1
+2 kiko nokia 112 14 0
+1 xxx samsung 23435 blue 256

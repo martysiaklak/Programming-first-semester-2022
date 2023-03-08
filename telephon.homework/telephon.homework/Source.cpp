@@ -1,21 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <fstream>
 using namespace std;
 
-
-//У двох текстових файлах задано дані про телефони двох різних фірм.
-//Зчитати ці дані в один масив  і вивести у текстовий файл : 
-//1)всі телефони, посортовані за ціною із зазначенням загальної суми; 
-//2) радіотелефони з автовідповідачем
 class Phone
 {
 protected:
-	string name;    //коли тип даних стає абстрактним?
+	string name;    
 	string company;
-	int price;
+	int price=0;
 public:
-	virtual void input(istream& is) 
+	virtual void input(istream& is)
 	{ 
 		is >> name >> company>> price; 
 	}
@@ -24,14 +20,19 @@ public:
 		phone.input(is);
 		return is;
 	}
-	virtual void output(ostream& os) { os << name<<company<<price; }
+	virtual void output(ostream& os) 
+	{
+		os << "Name:" << name << endl;
+		os << "Company:" << company << endl;
+		os << "Price:" << price << endl;
+	}
 	friend ostream& operator<<(ostream& os, Phone& phone)
 	{
 		phone.output(os);
 		return os;
 	}
-	//virtual int get_price() = 0;      //????
-	bool operator<(const Phone& phone)
+	virtual int get_price() { return price; }     
+	virtual bool operator<(const Phone& phone)
 	{
 		return price < phone.price;
 	}
@@ -41,7 +42,7 @@ class Mobile : public Phone
 {
 private:
 	string colour;
-	int memory;
+	int memory=0;
 public:
 	virtual void input(istream& is)
 	{
@@ -56,7 +57,8 @@ public:
 	virtual void output(ostream& os)
 	{
 		Phone::output(os);
-		os << colour << memory;
+		os << "colour:" << colour << endl;
+		os << "memory:" << memory << endl;
 	}
 	friend ostream& operator<<(ostream& os, Mobile& mobile)
 	{
@@ -67,8 +69,8 @@ public:
 class Radio : public Phone
 {
 private:
-	int radius;
-	bool a;
+	int radius=0;
+	bool a=1;
 public:
 	virtual void input(istream& is)
 	{
@@ -83,64 +85,68 @@ public:
 	virtual void output(ostream& os)
 	{
 		Phone::output(os);
-		os << radius<<a;
+		os << "radius:" << radius << endl;
+		os << "ia there an autoplay?:" << a << endl;
 	}
 	friend ostream& operator<<(ostream& os, Radio& radiophone)
 	{
 		radiophone.output(os);
 		return os;
 	}
+	bool GetA()
+	{
+		return a;
+	}
 };
+void write_radiophones_with_an_autoplay(vector<Phone*>& list, ofstream& output_file);
 int main()
 {
 	vector <Phone*> list;
 	ifstream file("data.txt");
-	int num_objects;
-	file >> num_objects;
-
-	for (int i = 0; i < num_objects; i++)
+	while (!file.eof())                        
 	{
 		int num;
-		Phone* temp = nullptr;
+		Phone* temp=0;
 		file >> num;
 		if (num == 1) { temp = new Mobile(); }
 		if (num == 2) { temp = new Radio(); }
 		temp->input(file);
 		list.push_back(temp);
 	}
-	//while (!file.eof())                        //не паше
-	//{
-	//	int num;
-	//	Phone* temp = 0;
-	//	file >> num;
-	//	if (num == 1) { temp = new Mobile(); }
-	//	if (num == 2) { temp = new Radio(); }
-	//	temp->input(file);
-	//	list.push_back(temp);
-	//}
-	for (int i = 0; i < list.size(); i++)
-	{
-		list[i]->output(cout);
-	}
 	file.close();
+	
+	sort(list.begin(), list.end(), [](Phone* p1, Phone* p2) { return *p1 < *p2; });
+	ofstream output_file;
+	output_file.open("output_file.txt");
+	output_file << "Phones sorted by price: " << endl;
+	for (int i = 0; i < list.size(); i++)
+	{
+		list[i]->output(output_file);
+	}
+	output_file << "-----------------------: " << endl;
+	int total_price = 0;
+	for (int i = 0; i < list.size(); i++)
+	{
+		total_price = total_price + list[i]->get_price();
+	}
+	output_file << "Total price: " << total_price << endl;
+	output_file << "-----------------------: " << endl;
 
-	int sum = 0;
-	for (int i = 0; i < list.size(); i++)
-	{
-		sum = sum + list[i].get_income();                           //з тими інкомами розібратися
-	}
-	/*}*/
-	/*int total_income = 0;
-	for (int i = 0; i < list.size(); i++)
-	{
-		total_income = list[i]->get_income();
-	}
-	cout << "Total income: " << total_income << endl;
-	sort(list.begin(), list.end());
-	for (int i = 0; i < list.size(); i++)
-	{
-		list[i]->output(cout);
-	}*/
+	write_radiophones_with_an_autoplay(list, output_file);
+	output_file.close();
+
 
 	return 0;
+}
+void write_radiophones_with_an_autoplay(vector<Phone*>& list, ofstream& output_file)
+{
+	output_file << "Radiophones with AutoReply:" << endl;
+	for (int i = 0; i < list.size(); i++)
+	{
+		Radio* radio = dynamic_cast<Radio*>(list[i]);
+		if (radio && radio->GetA())
+		{
+			radio->output(output_file);
+		}
+	}
 }

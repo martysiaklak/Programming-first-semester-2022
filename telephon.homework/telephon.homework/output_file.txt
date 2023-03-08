@@ -1,0 +1,30 @@
+Phones sorted by price: 
+Name:nin
+Company:nokia
+Price:12
+radius:1
+ia there an autoplay?:1
+Name:kiko
+Company:nokia
+Price:112
+radius:14
+ia there an autoplay?:0
+Name:pro
+Company:apple
+Price:123
+colour:red
+memory:1080
+Name:xxx
+Company:samsung
+Price:23435
+colour:blue
+memory:256
+-----------------------: 
+Total price: 23682
+-----------------------: 
+Radiophones with AutoReply:
+Name:nin
+Company:nokia
+Price:12
+radius:1
+ia there an autoplay?:1
