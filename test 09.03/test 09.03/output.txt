@@ -1,0 +1,30 @@
+Exhibits sorted by author: 
+-------------------------
+Name: david
+Author: michelangelo
+Material: marble
+-------------------
+Name: guernica
+Author: picasso
+Style: cubism
+Size: 3
+-------------------
+Name: girl
+Author: picasso
+Style: baroque
+Size: 44
+-------------------
+Name: thinker
+Author: rodin
+Material: marmur
+-------------------
+Name: night
+Author: vincent
+Style: postimpressionism
+Size: 73
+-------------------
+Paintings by asdfdg: 
+-------------------
+No paintings found 
+-------------------
+Quantity of sculptures made of marmur: 1

@@ -1,0 +1,19 @@
+Exhibits sorted by author: 
+Name: David
+Author: Michelangelo
+Material: Marble
+Name: Guernica
+Author: Picasso
+Style: Cubism
+Size: 3
+Name: Thinker
+Author: Rodin
+Material: Bronze
+Name: Girl
+Author: Vermeer
+Style: Baroque
+Size: 44
+Name: Night
+Author: Vincent
+Style: Post-Impressionism
+Size: 73
