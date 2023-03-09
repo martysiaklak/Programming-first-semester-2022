@@ -115,7 +115,7 @@ int main()
 	}
 	file.close();
 
-	sort(list.begin(), list.end(), [](Exhibit* e1, Exhibit* e2) { return *e1 < *e2; });
+	sort(list.begin(), list.end(), [](Exhibit* e1, Exhibit* e2) { return *e1 < *e2; }); //sorting
 	ofstream output_file;
 	output_file.open("output.txt");
 	output_file << "Exhibits sorted by author: " << endl;
@@ -125,10 +125,9 @@ int main()
 		list[i]->output(output_file);
 	}
 	
-	cout << "Enter author:" << endl;
+	cout << "Enter author:" << endl;    //paintings by author
 	string author_test;
 	cin >> author_test;
-
 	output_file << "Paintings by " << author_test<<": "<< endl;
 	output_file << "-------------------" << endl;
 	int test = 0;
@@ -149,8 +148,9 @@ int main()
 		output_file << "No paintings found "<< endl;
 		output_file << "-------------------" << endl;
 	}
+
 	int sum = 0;
-	for (int i = 0; i < list.size(); i++)
+	for (int i = 0; i < list.size(); i++)      //Quantity of sculptures made of marmur
 	{
 		Sculpture* temp = dynamic_cast<Sculpture*>(list[i]);
 		if (temp != nullptr)
