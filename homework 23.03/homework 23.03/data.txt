@@ -1,0 +1,10 @@
+W 12 submarine lake 333
+L 123 car 3 2
+A 12 Gibbs lake 45 45 2 
+L 23 carwergr 4 2
+W 33 submarinewer ocean 555
+L 88 carfyjy 5 4
+A 1234 Sherp river 28 3 4
+W 888 submarinewf river 777
+L 99 cwwer 6 6
+A 123 WaterCar ocean 80 44 4

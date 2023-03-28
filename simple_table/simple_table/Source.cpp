@@ -21,12 +21,12 @@ public:
                 return;
             }
         }
-        data.push_back(pair<int, string>(key, value));
+        data.push_back(pair<int, string>(key, value));  //якщо не існує, то створюємо
     }
 
     void EraseByKey(int key) //видалення
     {
-        for (auto i = data.begin(); i != data.end(); i++) 
+        for (auto i = data.begin(); i != data.end(); i++) //data.begin() i data.end() вказівники на перший і останній елементи вектора
         {
             if (i->first == key)          
             {
