@@ -27,7 +27,7 @@ double square(double x)
 
 double Trygo(double x) 
 {
-    return sin(x) + cos(x) - tan(x);
+        return sin(x) + cos(x) - tan(x);
 }
 
 double nearestInt(double x) 
