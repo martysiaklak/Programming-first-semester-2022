@@ -1,0 +1,52 @@
+water bills sorted by surnames: 
+your surname: Jacobce
+water consumption volume: 312
+pokazy: 176
+you need to pay: 68.92
+---------------------------------------
+your surname: Marine
+water consumption volume: 78
+pokazy: 45
+you need to pay: 12.55
+---------------------------------------
+your surname: Robertos
+water consumption volume: 459
+pokazy: 247
+you need to pay: 103.21
+---------------------------------------
+your surname: Samantha
+water consumption volume: 125
+pokazy: 98
+you need to pay: 23.8
+---------------------------------------
+your surname: Will
+water consumption volume: 234
+pokazy: 123
+you need to pay: 44.56
+---------------------------------------
+Water bills sorted by sum (top 5): 
+your surname: Jacobce
+water consumption volume: 312
+pokazy: 176
+you need to pay: 68.92
+---------------------------------------
+your surname: Marine
+water consumption volume: 78
+pokazy: 45
+you need to pay: 12.55
+---------------------------------------
+your surname: Robertos
+water consumption volume: 459
+pokazy: 247
+you need to pay: 103.21
+---------------------------------------
+your surname: Samantha
+water consumption volume: 125
+pokazy: 98
+you need to pay: 23.8
+---------------------------------------
+your surname: Will
+water consumption volume: 234
+pokazy: 123
+you need to pay: 44.56
+---------------------------------------

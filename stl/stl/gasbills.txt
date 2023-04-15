@@ -1,0 +1,21 @@
+gas bills sorted by quantity of people living: 
+your surname: Johnson
+quantity of people living with you: 5
+you need to pay: 42.75
+---------------------------------------
+your surname: Smith
+quantity of people living with you: 3
+you need to pay: 24.99
+---------------------------------------
+your surname: Davis
+quantity of people living with you: 2
+you need to pay: 18.5
+---------------------------------------
+your surname: Brown
+quantity of people living with you: 2
+you need to pay: 12.8
+---------------------------------------
+your surname: Wilson
+quantity of people living with you: 1
+you need to pay: 9.99
+---------------------------------------
