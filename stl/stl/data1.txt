@@ -2,9 +2,11 @@
 2 Jacobce 312 68.92 176
 2 Marine 78 12.55 45
 1 Davis 2 18.50
+2 Dudynets 43 111.098 22
 2 Samantha 125 23.80 98
 1 Wilson 1 9.99 
 2 Will 234 44.56 123
 1 Johnson 5 42.75
 1 Brown 2 12.80 
 2 Robertos 459 103.21 247
+2 Klakovych 432 114.098 347

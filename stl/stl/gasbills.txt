@@ -1,4 +1,5 @@
-gas bills sorted by quantity of people living: 
+gas bills sorted by quantity of people living with you: 
+------------------------
 your surname: Johnson
 quantity of people living with you: 5
 you need to pay: 42.75
