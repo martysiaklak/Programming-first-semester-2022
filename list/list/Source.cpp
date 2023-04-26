@@ -29,7 +29,7 @@ int main()
 
 	numbers.unique(); //deleting repeated numbers
 	cout << "sorted numbers without any repeatings: " << endl;
-	list<int>::iterator it;
+	list<int>::iterator it; //iterators are used to point at the memory addresses of STL containers
 	for (it = numbers.begin(); it != numbers.end(); ++it) //printing using iterator
 	{
 		cout << *it << " ";
@@ -37,3 +37,11 @@ int main()
 
 	return 0;
 }
+
+
+
+
+/*Він дозволяє додавати та видаляти елементи у будь - якому місці списку за допомогою ітераторів
+Крім того, списки відрізняються від масивів тим, що вони не є послідовними блоками пам'яті. 
+Вони складаються з вузлів, які посилаються один на одного, 
+що дозволяє ефективно вставляти та видаляти елементи з середини списку.*/
