@@ -1,0 +1,5 @@
+monday 10 23
+monday 11 43
+monday 18 2
+tuesday 10 2
+tuesday 17 43
