@@ -34,7 +34,7 @@ int main()
 		int num;
 		cout << "number of what element do you choose?" << endl;
 		cin >> num;
-		if (num!=int(num))  //ÿךשמ i םו ³םעמגו
+		if (cin.fail())  //ÿךשמ i םו ³םעמגו
 		{
 			throw invalid_argument("Wrong data type");  
 		}

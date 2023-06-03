@@ -1,8 +1,16 @@
 Marta 
-21 2 3 1 walking 20
-21 3 3 1 walking 20 
-21 4 3 2 walking 20 reading 10
-21 5 3 3 walking 20 painting 5 singing 33
-21 6 3 1 walking 20 
-21 7 3 4 walking 20 painting 5 singing 33 dancing 8
-21 8 3 1 walking 20 
+21 2 2023 1 walking 20
+21 3 2023 1 fishing 20 
+21 4 2023 2 walking 20 reading 10
+21 5 2023 3 walking 20 painting 5 singing 33
+21 6 2023 1 climbing 20 
+21 7 2023 4 walking 20 painting 5 singing 33 dancing 8
+21 8 2023 1 walking 20 
+Eva
+21 2 2023 1 talking 20
+21 3 2023 1 hiking 20 
+21 4 2023 2 walking 20 reading 10
+21 5 2023 3 walking 20 painting 5 singing 33
+21 6 2023 1 skateboarding 20 
+21 7 2023 4 sledding 20 painting 5 singing 33 dancing 8
+21 8 2023 1 walking 20 

@@ -26,6 +26,15 @@ private:
 	string name;
 	int duration;
 public:
+	int GetTime()
+	{
+		return duration;
+	}
+	
+	bool operator==(const string& str) const
+	{
+		return name == str;
+	}
 	friend istream& operator>>(istream& is, Action& action)
 	{
 		is >> action.name >> action.duration;
@@ -33,7 +42,8 @@ public:
 	}
 	friend ostream& operator<<(ostream& os, Action& action)
 	{
-		os << "action: " << action.name << " duration: " << action.duration << endl;
+		os << "action: " << action.name << endl;
+		os<<"duration: " << action.duration << endl;
 		return os;
 	}
 
@@ -46,6 +56,32 @@ private:
 	date currentdate;
 	int quantity;
 public:
+	int GetQ()
+	{
+		return quantity;
+	}
+	bool FindWalk()
+	{
+		for (auto& action : list)
+		{
+			if (action == "walking")
+			{
+				return true;
+			}
+			else
+				return false;
+		}
+	}
+	int FindTime()
+	{
+		for (auto& action : list)
+		{
+			if (action == "walking")
+			{
+				return action.GetTime();
+			}
+		}
+	}
 	/*
 	date GetDate()
 	{
@@ -65,33 +101,15 @@ public:
 	}
 	friend ostream& operator<<(ostream& os, Day_Schedule& day_Schedule)
 	{
-		os << day_Schedule.currentdate << endl;
-		os << day_Schedule.quantity << endl;
+		os << "date:" << endl;
+		os<<day_Schedule.currentdate << endl;
+		os << "quantity of actions:" << day_Schedule.quantity << endl;
 		for (auto& action : day_Schedule.list)
 		{
 			os << action << endl;
 		}
 		return os;
 	}
-	//friend ostream& operator<<(ostream& os, Day_Schedule& day_Schedule)
-	//{
-	//	os << "date: " << day_Schedule.currentdate;
-	//	os << "quantity of actions: " << day_Schedule.quantity<<endl;
-	//	for (const Action& action : day_Schedule.list)
-	//	{
-	//		os << action;
-	//	}
-	//	/*for (auto i : day_Schedule.list)
-	//	{
-	//		os << day_Schedule.list.front();
-	//		day_Schedule.list.pop_front();
-	//	}*/
-	//	/*for (const Action& action : day_Schedule.list)
-	//	{
-	//		os << day_Schedule.list.front();
-	//	}
-	//	return os;*/
-	//}
 };
 
 class Week_Schedule
@@ -103,6 +121,10 @@ public:
 	string getName()
 	{
 		return name;
+	}
+	Day_Schedule* GetArray()
+	{
+		return array;
 	}
 	friend istream& operator>>(istream& is, Week_Schedule& week_Schedule)
 	{
@@ -146,7 +168,34 @@ int main()
 		file.close();
 		for (int i = 0; i < 2; i++)
 		{
-			cout << players[i];
+			cout << players[i].getName()<<endl;
+			int max=players[i].GetArray()[0].GetQ();
+			int max_q_index;
+			for (int j = 0; j < 7; j++)
+			{
+				if (max < players[i].GetArray()[j].GetQ())
+				{
+					max = players[i].GetArray()[j].GetQ();
+					max_q_index = j;
+				}
+			}
+			cout << "day with max q of actions:" << endl;
+			cout << players[i].GetArray()[max_q_index];
+			cout << "--------------------------" << endl;
+		}
+		for (int i = 0; i < 2; i++)
+		{
+			int time=0;
+			cout << players[i].getName()<<endl;
+			for (int j = 0; j < 7; j++)
+			{
+				if (players[i].GetArray()[j].FindWalk() == true)
+				{
+					time += players[i].GetArray()[j].FindTime();  
+				}
+			}
+			cout << "Time spent on walking: " << time<<endl;
+			cout << "--------------------------" << endl;
 		}
 	}
 		catch (runtime_error e)
