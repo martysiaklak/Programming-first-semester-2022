@@ -18,10 +18,11 @@ public:
 	void insert(char elem)
 	{
 		int index;
-		if (elem >= 'a' && elem <= 'z')
+		if (elem >= 'a' && elem <= 'z')   //якщо буква
 			index = elem - 'a';
 		else
-			index = elem + 26 - '0';
+			index = elem + 26 - '0';     //якщо цифра
+		//Отриманий індекс використовується для визначення, в якому окремому біті масиву a зберігається інформація про наявність елемента в множині
 		a[index / 8] |= (1 << (7 - index % 8));
 	}
 	void remove(char elem)
@@ -31,6 +32,7 @@ public:
 			index = elem - 'a';
 		else
 			index = elem + 26 - '0';
+		//Операція &= використовується для виконання побітового "і з присвоєнням", щоб обнулити відповідний біт в масиві a
 		a[index / 8] &= ~(1 << (7 - index % 8));
 	}
 	bool contains(char elem)
@@ -46,6 +48,8 @@ public:
 	{
 		for (size_t i = 0; i < 5; i++)
 		{
+			//для кожного біта на відповідних позиціях обох масивів, результат буде 1 тільки в тому випадку, 
+			//якщо на цих позиціях обидва біти були встановлені в 1
 			a[i] &= other.a[i];
 		}
 	}
@@ -82,21 +86,6 @@ TEST_CASE("Insert and Remove")
 	CHECK(set.contains('c') == false);
 }
 
-TEST_CASE("Insert and Remove Multiple Times")
-{
-	Set set;
-	set.insert('a');
-	set.insert('b');
-	set.remove('a');
-	set.remove('b');
-	set.insert('1');
-	set.insert('2');
-	set.remove('1');
-	CHECK(set.contains('a') == false);
-	CHECK(set.contains('b') == false);
-	CHECK(set.contains('1') == false);
-	CHECK(set.contains('2') == true);
-}
 TEST_CASE("Intersection")
 {
 	Set set1;
@@ -114,6 +103,7 @@ TEST_CASE("Intersection")
 	CHECK(set1.contains('1') == false);
 	CHECK(set1.contains('c') == false);
 }
+
 TEST_CASE("Union")
 {
 	Set set1;

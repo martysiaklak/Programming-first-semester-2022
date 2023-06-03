@@ -125,10 +125,12 @@ int main()
 		water_file << bill;
 	}
 
-	sort(water_bills.begin(), water_bills.end(), [](const WaterBill& a, const WaterBill& b) //sorting by sum
+	sort(water_bills.begin(), water_bills.end());
+	/*, [](const WaterBill& a, const WaterBill& b) //sorting by sum
 		{
 			return a.sum > b.sum;  // Sort in descending order
 		});
+		*/
 	water_file << "top-5 bills with the biggest sum" << endl;
 	water_file << "------------------------" << endl;
 	for (int i = 0; i < 5; i++)     //printing 5 bills with the biggest sum

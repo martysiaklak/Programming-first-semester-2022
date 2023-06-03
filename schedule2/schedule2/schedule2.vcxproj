@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8f1dfa48-5b4a-4f13-8f7f-9f17d2f69e6c}</ProjectGuid>
-    <RootNamespace>Dalgorithm</RootNamespace>
+    <ProjectGuid>{df8a43c7-b816-4fa3-b97a-6db5f1f05362}</ProjectGuid>
+    <RootNamespace>schedule2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -130,7 +130,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doctest.h" />
+    <Text Include="players.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

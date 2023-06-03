@@ -1,0 +1,14 @@
+Marta 21 2 3 1 walking 20
+21 3 3 1 walking 20 
+21 4 3 2 walking 20 reading 10
+21 5 3 3 walking 20 painting 5 singing 33
+21 6 3 1 walking 20 
+21 7 3 4 walking 20 painting 5 singing 33 dancing 8
+21 8 3 1 walking 20 
+Anna 21 7 3 1 walking 20
+21 8 3 1 walking 20 
+21 9 3 2 walking 20 reading 10
+21 10 3 3 walking 20 painting 5 singing 33
+21 11 3 1 walking 20 
+21 12 3 4 walking 20 painting 5 singing 33 dancing 8
+21 13 3 1 walking 20 

@@ -20,8 +20,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doctest.h">
+    <Text Include="players.txt">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </Text>
   </ItemGroup>
 </Project>

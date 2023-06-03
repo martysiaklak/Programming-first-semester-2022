@@ -1,0 +1,28 @@
+day of the week: Friday
+hour(s) with max visitors: 9 15 
+quantity of visitors: 80
+-------------------------------
+day of the week: Monday
+hour(s) with max visitors: 10 15 
+quantity of visitors: 60
+-------------------------------
+day of the week: Saturday
+hour(s) with max visitors: 15 
+quantity of visitors: 120
+-------------------------------
+day of the week: Sunday
+hour(s) with max visitors: 15 
+quantity of visitors: 90
+-------------------------------
+day of the week: Thursday
+hour(s) with max visitors: 15 
+quantity of visitors: 65
+-------------------------------
+day of the week: Tuesday
+hour(s) with max visitors: 16 
+quantity of visitors: 222
+-------------------------------
+day of the week: Wednesday
+hour(s) with max visitors: 11 14 
+quantity of visitors: 75
+-------------------------------

@@ -1,0 +1,8 @@
+days sorted by the whole quantity of visitors:
+Saturday: 630
+Tuesday: 572
+Sunday: 510
+Friday: 480
+Wednesday: 410
+Thursday: 335
+Monday: 310
