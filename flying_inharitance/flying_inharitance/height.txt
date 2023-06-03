@@ -1,0 +1,28 @@
+Type of aircraft: type
+Max possible height: 200m
+Speed: 10 km/h
+
+------------------
+Type of aircraft: type
+Max possible height: 100m
+Speed: 6 km/h
+
+------------------
+Type of aircraft: type
+Max possible height: 123m
+Speed: 60 km/h
+
+------------------
+Type of aircraft: type
+Max possible height: 34m
+Max time in air: 16
+------------------
+Type of aircraft: type
+Max possible height: 100m
+Speed: 600 km/h
+
+------------------
+Type of aircraft: type
+Max possible height: 34m
+Max time in air: 44
+------------------

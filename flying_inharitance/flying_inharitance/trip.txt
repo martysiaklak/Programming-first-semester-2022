@@ -1,0 +1,20 @@
+Type of aircraft: type
+Max possible height: 200m
+Speed: 10 km/h
+time to get from Lviv to Kyiv: 60h
+----------------
+Type of aircraft: type
+Max possible height: 100m
+Speed: 6 km/h
+time to get from Lviv to Kyiv: 100h
+----------------
+Type of aircraft: type
+Max possible height: 123m
+Speed: 60 km/h
+time to get from Lviv to Kyiv: 10h
+----------------
+Type of aircraft: type
+Max possible height: 100m
+Speed: 600 km/h
+time to get from Lviv to Kyiv: 1h
+----------------
