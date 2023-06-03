@@ -16,7 +16,7 @@ struct date
 	}
 	friend ostream& operator<<(ostream& os, date& date_)
 	{
-		os << "mounth: " << date_.month << "day: " << date_.day << "year: " << date_.year << endl;
+		os << "month: " << date_.month << " day: " << date_.day << " year: " << date_.year << endl;
 		return os;
 	}
 };
@@ -33,7 +33,7 @@ public:
 	}
 	friend ostream& operator<<(ostream& os, Action& action)
 	{
-		os << "action: " << action.name << "duration: " << action.duration << endl;
+		os << "action: " << action.name << " duration: " << action.duration << endl;
 		return os;
 	}
 
@@ -65,23 +65,33 @@ public:
 	}
 	friend ostream& operator<<(ostream& os, Day_Schedule& day_Schedule)
 	{
-		os << "date: " << day_Schedule.currentdate;
-		os << "quantity of actions: " << day_Schedule.quantity<<endl;
-		/*for (const Action& action : day_Schedule.list)
+		os << day_Schedule.currentdate << endl;
+		os << day_Schedule.quantity << endl;
+		for (auto& action : day_Schedule.list)
 		{
-			os << action;
-		}*/
-		/*for (auto i : day_Schedule.list)
-		{
-			os << day_Schedule.list.front();
-			day_Schedule.list.pop_front();
-		}*/
-		for (const Action& action : day_Schedule.list)
-		{
-			os << day_Schedule.list.front();
+			os << action << endl;
 		}
 		return os;
 	}
+	//friend ostream& operator<<(ostream& os, Day_Schedule& day_Schedule)
+	//{
+	//	os << "date: " << day_Schedule.currentdate;
+	//	os << "quantity of actions: " << day_Schedule.quantity<<endl;
+	//	for (const Action& action : day_Schedule.list)
+	//	{
+	//		os << action;
+	//	}
+	//	/*for (auto i : day_Schedule.list)
+	//	{
+	//		os << day_Schedule.list.front();
+	//		day_Schedule.list.pop_front();
+	//	}*/
+	//	/*for (const Action& action : day_Schedule.list)
+	//	{
+	//		os << day_Schedule.list.front();
+	//	}
+	//	return os;*/
+	//}
 };
 
 class Week_Schedule
@@ -116,21 +126,32 @@ public:
 };
 int main()
 {
-	vector <Week_Schedule> players;
-	ifstream file("data.txt");
-	while (!file.eof())
+	try
 	{
+		vector <Week_Schedule> players;
+		ifstream file("players.txt");
+		if (!file.is_open())
+		{
+			throw runtime_error("file is not opened");
+		}
+		while (!file.eof())
+		{
+			for (int i = 0; i < 2; i++)
+			{
+				Week_Schedule w;
+				file >> w;
+				players.push_back(w);
+			}
+		}
+		file.close();
 		for (int i = 0; i < 2; i++)
 		{
-			Week_Schedule w;
-			file >> w;
-			players.push_back(w);
+			cout << players[i];
 		}
 	}
-	file.close();
-	for (int i = 0; i < 2; i++)
+		catch (runtime_error e)
 	{
-		cout << players[i];
+		cerr << "Error:" << e.what() << endl;
 	}
 	return 0;
 }
